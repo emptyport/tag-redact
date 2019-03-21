@@ -4,7 +4,6 @@ module.exports.redact = (
   {
     fileList=[],
     outputPath='',
-    msLevel=2,
     tolerance=20,
     toleranceUnits='ppm',
     foldChange=2,
@@ -15,7 +14,6 @@ module.exports.redact = (
   {
     fileList: [],
     outputPath: '',
-    msLevel: 2,
     tolerance: 20,
     toleranceUnits: 'ppm',
     foldChange: 2,
@@ -25,5 +23,9 @@ module.exports.redact = (
     console.log(fileList);
     fileList.map(file => {
       let processor = spectrumReader.processor(file);
+      let result = processor.next();
+      while(!result.done) {
+        result = processor.next();
+      }
     })
 }

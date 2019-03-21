@@ -1,5 +1,5 @@
 const tagRedact = require('./index');
 
 tagRedact.redact({
-    fileList:['hek1.mgf']
+    fileList:['m02846_subset640-649.mzML']
 });
